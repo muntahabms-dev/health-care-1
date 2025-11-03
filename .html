@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colorful Smart Health Care</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SECTION 1: HEADER & NAV -->
+  <section class="page hero">
+    <header>
+      <h1>🏥 Smart Health Care WebApp</h1>
+      <p>Your Health • Your Data • Your Care</p>
+      <nav>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#doctors">Doctors</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="controls">
+        <div class="language">
+          <button>English</button>
+          <button>বাংলা</button>
+        </div>
+        <div class="theme">
+          <button id="themeToggle">🌙 Dark Mode</button>
+        </div>
+      </div>
+    </header>
+  </section>
+
+  <!-- SECTION 2: HEALTH DASHBOARD -->
+  <section class="page dashboard" id="dashboard">
+    <h2>💡 Health Dashboard</h2>
+    <div class="cards-container">
+
+      <div class="card red">
+        <h3>💓 Blood Pressure</h3>
+        <input type="text" placeholder="Enter BP (e.g. 120/80)">
+        <button>Record</button>
+      </div>
+
+      <div class="card blue">
+        <h3>🩸 Sugar Level</h3>
+        <input type="text" placeholder="Enter Sugar Level (mg/dL)">
+        <button>Save</button>
+      </div>
+
+      <div class="card green">
+        <h3>💧 Water Intake</h3>
+        <input type="number" placeholder="Water (ml)">
+        <button>Add</button>
+        <div class="progress-bar"><div class="progress"></div></div>
+      </div>
+
+      <div class="card orange">
+        <h3>🛡️ Immunity</h3>
+        <input type="number" placeholder="Immunity Level (1–100)">
+        <button>Check</button>
+      </div>
+
+      <div class="card purple">
+        <h3>🚶 Steps Counter</h3>
+        <input type="number" placeholder="Steps Today">
+        <button>Update</button>
+        <div class="progress-bar"><div class="progress"></div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: DOCTORS LIST -->
+  <section class="page doctors" id="doctors">
+    <h2>👨‍⚕️ Our Specialist Doctors</h2>
+    <div class="doctor-list">
+
+      <div class="doctor-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="Doctor">
+        <h4>Dr. Rahim Ahmed</h4>
+        <p>Cardiologist</p>
+        <button>Book Appointment</button>
+      </div>
+
+      <div class="doctor-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/706/706830.png" alt="Doctor">
+        <h4>Dr. Anika Sultana</h4>
+        <p>Diabetologist</p>
+        <button>Book Appointment</button>
+      </div>
+
+      <div class="doctor-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2922/2922510.png" alt="Doctor">
+        <h4>Dr. Hasan Karim</h4>
+        <p>Nutritionist</p>
+        <button>Book Appointment</button>
+      </div>
+
+      <div class="doctor-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3774/3774279.png" alt="Doctor">
+        <h4>Dr. Priya Das</h4>
+        <p>General Physician</p>
+        <button>Book Appointment</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: CONTACT -->
+  <section class="page contact" id="contact">
+    <h2>📞 Contact & Helpline</h2>
+    <div class="contact-info">
+      <div>
+        <h3>Hotline</h3>
+        <p>+1 800 123 4567</p>
+      </div>
+      <div>
+        <h3>Helpline</h3>
+        <p>+1 800 765 4321</p>
+      </div>
+    </div>
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.902620793812!2d90.40404511536565!3d23.75090359460338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8560efc4a6d%3A0x2d7d1f1c6d1f92c2!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sus!4v1698934567890!5m2!1sen!2sus"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Smart Health Care | Designed by ChatGPT</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    // ===== Dark / Light Theme =====
+    const themeBtn = document.getElementById('themeToggle');
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      themeBtn.textContent = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    });
+
+    // ===== Language Toggle =====
+    const langButtons = document.querySelectorAll('.language button');
+    const textMap = {
+      'English': { header:'🏥 Smart Health Care WebApp', tagline:'Your Health • Your Data • Your Care' },
+      'বাংলা': { header:'🏥 স্মার্ট হেলথ কেয়ার ওয়েবঅ্যাপ', tagline:'আপনার স্বাস্থ্য • আপনার তথ্য • আপনার যত্ন' }
+    };
+    langButtons.forEach(btn => btn.addEventListener('click', () => {
+      document.querySelector('header h1').textContent = textMap[btn.textContent].header;
+      document.querySelector('header p').textContent = textMap[btn.textContent].tagline;
+    }));
+
+    // ===== Doctor Booking =====
+    document.querySelectorAll('.doctor-card button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.closest('.doctor-card').querySelector('h4').textContent;
+        const date = prompt(`Book appointment with ${name}\nEnter date (YYYY-MM-DD):`);
+        if(date) alert(`Appointment booked with ${name} on ${date}`);
+      });
+    });
+  </script>
+
+</body>
+</html>
