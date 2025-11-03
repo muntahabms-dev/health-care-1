@@ -1,0 +1,98 @@
+<!-- SECTION 4: USER LOGIN / SIGN UP -->
+<section class="page user" id="user">
+  <h2>👤 User Portal</h2>
+  <div class="auth-container">
+
+    <!-- SIGN UP -->
+    <div class="auth-card blue">
+      <h3>📝 Sign Up</h3>
+      <input type="text" id="signupName" placeholder="Name">
+      <input type="email" id="signupEmail" placeholder="Email">
+      <input type="password" id="signupPassword" placeholder="Password">
+      <button onclick="signUp()">Sign Up</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div class="auth-card green">
+      <h3>🔐 Login</h3>
+      <input type="email" id="loginEmail" placeholder="Email">
+      <input type="password" id="loginPassword" placeholder="Password">
+      <button onclick="login()">Login</button>
+    </div>
+
+    <!-- USER PROFILE -->
+    <div class="auth-card orange" id="userProfile" style="display:none;">
+      <h3>👤 Profile</h3>
+      <p>Name: <span id="userName"></span></p>
+      <p>Email: <span id="userEmail"></span></p>
+      <button onclick="logout()">Logout</button>
+      <button onclick="speakText('Hello! Stay healthy by drinking water, walking daily and eating healthy foods.')">🔊 Read Health Tips</button>
+    </div>
+
+  </div>
+</section>
+
+<script>
+let users = [];
+
+function signUp() {
+  const name = document.getElementById('signupName').value;
+  const email = document.getElementById('signupEmail').value;
+  const password = document.getElementById('signupPassword').value;
+
+  if(!name || !email || !password) {
+    alert('Please fill all fields!');
+    return;
+  }
+
+  if(users.find(u => u.email === email)){
+    alert('Email already registered!');
+    return;
+  }
+
+  users.push({name,email,password});
+  alert('Sign Up Successful! You can now login.');
+  document.getElementById('signupName').value='';
+  document.getElementById('signupEmail').value='';
+  document.getElementById('signupPassword').value='';
+}
+
+function login() {
+  const email = document.getElementById('loginEmail').value;
+  const password = document.getElementById('loginPassword').value;
+
+  const user = users.find(u => u.email === email && u.password === password);
+  if(user) {
+    alert('Login Successful!');
+    document.getElementById('userProfile').style.display='block';
+    document.getElementById('userName').textContent = user.name;
+    document.getElementById('userEmail').textContent = user.email;
+  } else {
+    alert('Invalid email or password!');
+  }
+}
+
+function logout() {
+  document.getElementById('userProfile').style.display='none';
+  alert('Logged out successfully!');
+}
+
+// ===== Voice Feature =====
+function speakText(text) {
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.lang = 'en-US';
+  window.speechSynthesis.speak(speech);
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
