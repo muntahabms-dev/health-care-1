@@ -1,2 +1,7 @@
 # health-care-1
 Smart Health Care is a comprehensive web application designed to help users manage their health efficiently. With features like tracking blood pressure, sugar level, heart rate, and pulse rate, users can monitor their vital signs in real-time. It provides access to nearby Upazila hospitals, complete doctors’ lists, vaccination schedules, blood donation opportunities, and mental health support. Users can view detailed health reports, contact doctors in emergencies, and use login and sign-up for a personalized experience. The platform supports both English and Bangla languages and includes a voice feature for accessibility, making it easy for everyone to stay informed and take control of their health from anywhere.
+
+HLD Diagram link:
+https://app.eraser.io/workspace/EpA3Pkhoyt7cwdzMme5v?origin=share
+scalar link:
+https://editor.scalar.com/@default-team-7lvpb/apis/my-api/latest
